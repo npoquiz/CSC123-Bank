@@ -6,8 +6,8 @@ public class CheckingAccount extends Account implements Serializable{
 	private static final long serialVersionUID = 1L;
 	double overdraftLimit;
 	
-	public CheckingAccount(Customer customer,double od) {
-		super("Checking",customer);
+	public CheckingAccount(Customer customer,double od,String cc) {
+		super("Checking",customer,cc);
 		this.overdraftLimit=od;
 	}
 

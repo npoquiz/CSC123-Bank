@@ -11,17 +11,20 @@ public class Account implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private String accountName;
 	private Customer accountHolder;
+	private String currency;
 	private ArrayList<Transaction> transactions;
 	
 	private boolean open=true;
 	private int accountNumber;
 
-	protected Account(String name, Customer customer) {
+	protected Account(String name, Customer customer, String cc) {
 		accountName=name;
 		accountHolder=customer;
+		currency = cc;
 		transactions=new ArrayList<Transaction>();
 		accountNumber=UniqueCounter.nextValue();
 	}
+	
 	
 	public String getAccountName() {
 		return accountName;
@@ -41,8 +44,6 @@ public class Account implements Serializable {
 		
 		return workingBalance;
 	}
-	
-	
 	
 	
 	public void deposit(double amount)  throws AccountClosedException{
@@ -98,4 +99,9 @@ public class Account implements Serializable {
 		out.flush();
 		
 	}
+	
+	public void accountInfo() {
+		
+	}
+	
 }
