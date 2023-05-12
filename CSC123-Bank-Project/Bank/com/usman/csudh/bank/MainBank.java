@@ -112,7 +112,7 @@ public class MainBank {
 					///Show Account Information
 					try {
 					int accountNumber = ui.readInt(MSG_ACCOUNT_NUMBER);
-					Bank.accountInfo(accountNumber);
+					Bank.getAccountInfo(accountNumber, this.out);
 					
 					} catch (NoSuchAccountException e) {
 						this.handleException(ui, e);

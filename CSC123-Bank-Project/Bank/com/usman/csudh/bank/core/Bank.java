@@ -99,9 +99,9 @@ public class Bank {
 		return accounts.get(accountNumber);
 	}
 	
-	public static void accountInfo(int accountNumber) throws NoSuchAccountException {
+	public static void getAccountInfo(int accountNumber, OutputStream out) throws NoSuchAccountException, IOException {
 		
-		lookup(accountNumber).accountInfo();
+		lookup(accountNumber).accountInfo(out);
 		
 	}
 	

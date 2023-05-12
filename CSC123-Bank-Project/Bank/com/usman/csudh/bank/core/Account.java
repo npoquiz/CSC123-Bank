@@ -81,7 +81,7 @@ public class Account implements Serializable {
 	}
 
 	public String toString() {
-		String aName=accountNumber+"("+accountName+")"+" : "+accountHolder.toString()+ " : "+getBalance()+" : "+(open?"Account Open":"Account Closed");
+		String aName=accountNumber+"("+accountName+")"+" : "+accountHolder.toString()+ " : " + currency + " : " +getBalance()+" : "+(open?"Account Open":"Account Closed");
 		return aName;
 	}
 	 
@@ -100,7 +100,13 @@ public class Account implements Serializable {
 		
 	}
 	
-	public void accountInfo() {
+	public void accountInfo(OutputStream out) throws IOException {
+		String accNum = Integer.toString(this.accountNumber);
+		String name = this.accountHolder.getFirstName() + " " + this.accountHolder.getLastName();
+		String ssn = this.accountHolder.getSSN();
+		String cur = this.currency;
+		
+		out.write(("Account Number: " + accNum + "\n" + "Name: " + name + "\n" + "SSN: " + ssn + "\n" + "Currency: " + cur + "\n  ").getBytes());
 		
 	}
 	
